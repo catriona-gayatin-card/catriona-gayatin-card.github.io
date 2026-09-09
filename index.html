@@ -7,28 +7,20 @@
     <meta name="robots" content="noindex, nofollow, noarchive" />
     <meta name="description" content="Catriona Janelle V. Gayatin, Legal Manager at Gardenia Bakeries (Philippines), Inc. Contact details and calling card." />
     <title>Catriona Janelle V. Gayatin | Calling Card</title>
-    <link rel="stylesheet" href="./styles.css?v=3" />
-    <script src="./app.js?v=3" defer></script>
+    <link rel="stylesheet" href="./styles.css?v=4" />
+    <script src="./app.js?v=4" defer></script>
   </head>
   <body>
     <main class="page-shell">
-      <div class="card-viewer">
-        <header class="viewer-toolbar">
-          <p class="viewer-label">Digital calling card</p>
-          <div class="side-controls" role="tablist" aria-label="Card side">
-            <button id="front-tab" type="button" role="tab" aria-selected="true" aria-controls="front-panel" data-side="front">Front</button>
-            <button id="back-tab" type="button" role="tab" aria-selected="false" aria-controls="back-panel" data-side="back" tabindex="-1">Back</button>
-          </div>
-        </header>
-
+      <section class="card-viewer" aria-labelledby="digital-heading">
         <div class="card-surface">
-          <section id="front-panel" class="front-panel" role="tabpanel" aria-labelledby="front-tab" tabindex="0">
+          <article class="front-panel">
             <header class="card-header">
               <div class="identity">
                 <p class="role-title">Legal Manager</p>
                 <h1>Catriona Janelle<br /><span>V. Gayatin</span></h1>
               </div>
-              <img class="brand-logo" src="./assets/gardenia-logo.png" width="555" height="340" alt="Gardenia" />
+              <img class="brand-logo" src="./assets/Gardenia_Bakery_logo.svg" width="3816" height="2230" alt="Gardenia" />
             </header>
 
             <p class="company-name">Gardenia Bakeries (Philippines), Inc.</p>
@@ -70,13 +62,35 @@
               </div>
               <a class="website" href="https://www.gardenia.com.ph/" target="_blank" rel="noopener noreferrer">www.gardenia.com.ph<span aria-hidden="true">↗</span></a>
             </footer>
-          </section>
-
-          <section id="back-panel" class="back-panel" role="tabpanel" aria-labelledby="back-tab" tabindex="0" hidden>
-            <img class="original-back" src="./assets/card-back.png" width="1791" height="981" alt="Page 2 of the original calling-card PDF: the red Gardenia side. Gardenia. Masarap... kahit walang palaman! www.gardenia.com.ph" />
-          </section>
+          </article>
         </div>
-      </div>
+      </section>
+
+      <section class="original-card-section" aria-labelledby="original-heading">
+        <header class="viewer-toolbar original-toolbar">
+          <h2 id="original-heading" class="viewer-label">Original card</h2>
+          <p id="flip-instruction" class="flip-instruction">Click to flip</p>
+        </header>
+
+        <button
+          id="original-card"
+          class="flip-card"
+          type="button"
+          aria-pressed="false"
+          aria-describedby="flip-instruction"
+          aria-label="Original business card, front shown. Click to show the back."
+        >
+          <span class="flip-card-inner">
+            <span class="flip-card-face flip-card-front">
+              <img src="./assets/card-front.png" width="1660" height="961" alt="Original front of Catriona Janelle V. Gayatin's Gardenia business card" />
+            </span>
+            <span class="flip-card-face flip-card-back">
+              <img src="./assets/card-back.png" width="1791" height="981" alt="Original red back of the Gardenia business card" />
+            </span>
+          </span>
+        </button>
+        <p class="side-status" aria-live="polite">Front</p>
+      </section>
     </main>
   </body>
 </html>

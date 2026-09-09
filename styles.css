@@ -23,15 +23,15 @@ button, a { -webkit-tap-highlight-color: transparent; }
 button { font: inherit; }
 a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
 a:hover { color: var(--red); }
-a:focus-visible, button:focus-visible, [role="tabpanel"]:focus-visible {
+a:focus-visible, button:focus-visible {
   outline: 3px solid #dc9a39;
   outline-offset: 5px;
 }
-[hidden] { display: none !important; }
-
 .page-shell {
-  display: grid;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(4rem, 9vw, 7rem);
   min-height: 100vh;
   min-height: 100svh;
   padding: clamp(1rem, 4vw, 3.75rem);
@@ -51,29 +51,6 @@ a:focus-visible, button:focus-visible, [role="tabpanel"]:focus-visible {
   font-weight: 500;
   letter-spacing: 0.04em;
 }
-.side-controls {
-  display: flex;
-  padding: 0.25rem;
-  border: 1px solid #ffffff40;
-  border-radius: 999px;
-  background: #3d041c4a;
-}
-.side-controls button {
-  min-width: 4.85rem;
-  min-height: 2.65rem;
-  padding: 0.65rem 1.25rem;
-  border: 0;
-  border-radius: 999px;
-  background: transparent;
-  color: white;
-  font-size: 0.875rem;
-  font-weight: 650;
-  cursor: pointer;
-  transition: background-color 140ms ease, color 140ms ease;
-}
-.side-controls button:hover { background: #ffffff18; }
-.side-controls button[aria-selected="true"] { color: var(--navy); background: #fff; }
-
 .card-surface {
   background: white;
   box-shadow: 0 1rem 2.5rem #24041345, 0 3rem 5rem #24041322;
@@ -154,14 +131,74 @@ address { font-size: 1rem; font-style: normal; line-height: 1.7; }
 .website { display: inline-flex; align-items: center; gap: 0.6rem; color: var(--navy); font-size: 0.9375rem; text-decoration: none; line-height: 1.6; }
 .website:hover { text-decoration: underline; }
 .website span { color: var(--red); font-size: 1.125rem; }
-.back-panel { padding: 0; }
-.original-back { display: block; width: 100%; height: auto; }
+.original-card-section {
+  width: min(100%, 58rem);
+  margin: 0 auto;
+  perspective: 90rem;
+}
+.original-toolbar { padding-bottom: 0.8rem; }
+.flip-instruction {
+  margin: 0;
+  color: #ffffffc9;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+.flip-card {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1791 / 981;
+  padding: 0;
+  border: 0;
+  border-radius: 0.35rem;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  perspective: 90rem;
+}
+.flip-card-inner {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 780ms cubic-bezier(0.2, 0.72, 0.18, 1);
+}
+.flip-card:hover .flip-card-inner { transform: rotateY(-4deg) translateY(-0.2rem); }
+.flip-card.is-flipped .flip-card-inner,
+.flip-card.is-flipped:hover .flip-card-inner { transform: rotateY(180deg); }
+.flip-card-face {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  overflow: hidden;
+  border-radius: 0.35rem;
+  background: #fff;
+  box-shadow: 0 1.2rem 2.1rem #2404134f;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.flip-card-front { transform: rotateY(0deg); }
+.flip-card-back { transform: rotateY(180deg); }
+.flip-card-face img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.side-status {
+  margin: 0.8rem 0 0;
+  color: #ffffffbf;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  text-align: center;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
 
 @media (max-width: 700px) {
-  .page-shell { align-items: start; padding: 0.875rem; }
-  .viewer-toolbar { position: sticky; top: 0; z-index: 2; padding: 0.4rem 0 0.875rem; background: #750b20; }
-  .viewer-label { max-width: 7rem; line-height: 1.5; font-size: 0.875rem; }
-  .side-controls button { min-width: 4.25rem; padding-inline: 1rem; }
+  .page-shell { justify-content: flex-start; gap: 3.5rem; padding: 0.875rem 0.875rem 2.5rem; }
+  .viewer-toolbar { padding: 0.4rem 0 0.875rem; }
+  .viewer-label { line-height: 1.5; font-size: 0.875rem; }
   .front-panel { padding: 1.5rem; }
   .card-header { flex-direction: column-reverse; align-items: flex-start; gap: 1.35rem; }
   .brand-logo { width: 9.25rem; align-self: flex-end; }
@@ -175,12 +212,16 @@ address { font-size: 1rem; font-style: normal; line-height: 1.7; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
+  .flip-card:hover .flip-card-inner { transform: none; }
+  .flip-card.is-flipped .flip-card-inner,
+  .flip-card.is-flipped:hover .flip-card-inner { transform: rotateY(180deg); }
 }
 
 @media print {
   html, body { background: white; }
   .page-shell { display: block; padding: 0; min-height: auto; }
-  .viewer-toolbar { display: none; }
+  .viewer-toolbar, .side-status { display: none; }
   .card-surface { box-shadow: none; }
   .front-panel { padding: 1.5rem; }
+  .original-card-section { margin-top: 2rem; }
 }
