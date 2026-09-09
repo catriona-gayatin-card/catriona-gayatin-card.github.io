@@ -1,0 +1,186 @@
+:root {
+  color-scheme: light;
+  --navy: #153459;
+  --red: #ab1630;
+  --ink: #202d3d;
+  --muted: #657084;
+  --rule: #e0e5eb;
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+html { min-height: 100%; background: #750b20; }
+body {
+  min-width: 280px;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0;
+  color: var(--ink);
+  background: radial-gradient(ellipse at 20% 0%, #ac203a 0, transparent 65%), linear-gradient(140deg, #851127, #510f26);
+}
+button, a { -webkit-tap-highlight-color: transparent; }
+button { font: inherit; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+a:hover { color: var(--red); }
+a:focus-visible, button:focus-visible, [role="tabpanel"]:focus-visible {
+  outline: 3px solid #dc9a39;
+  outline-offset: 5px;
+}
+[hidden] { display: none !important; }
+
+.page-shell {
+  display: grid;
+  align-items: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: clamp(1rem, 4vw, 3.75rem);
+}
+.card-viewer { width: min(100%, 65rem); margin: 0 auto; }
+.viewer-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 0 1.15rem;
+}
+.viewer-label {
+  margin: 0;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.side-controls {
+  display: flex;
+  padding: 0.25rem;
+  border: 1px solid #ffffff40;
+  border-radius: 999px;
+  background: #3d041c4a;
+}
+.side-controls button {
+  min-width: 4.85rem;
+  min-height: 2.65rem;
+  padding: 0.65rem 1.25rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 650;
+  cursor: pointer;
+  transition: background-color 140ms ease, color 140ms ease;
+}
+.side-controls button:hover { background: #ffffff18; }
+.side-controls button[aria-selected="true"] { color: var(--navy); background: #fff; }
+
+.card-surface {
+  background: white;
+  box-shadow: 0 1rem 2.5rem #24041345, 0 3rem 5rem #24041322;
+}
+.front-panel {
+  position: relative;
+  padding: clamp(1.5rem, 4.5vw, 3.5rem);
+  border-top: 0.4rem solid var(--navy);
+}
+.front-panel::before {
+  position: absolute;
+  top: -0.4rem;
+  right: 0;
+  width: 18%;
+  height: 0.4rem;
+  background: var(--red);
+  content: "";
+}
+.card-header { display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
+.identity { min-width: 0; }
+.role-title {
+  margin: 0 0 0.8rem;
+  color: var(--red);
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  font-weight: 650;
+  letter-spacing: 0.035em;
+}
+h1 {
+  margin: 0;
+  color: var(--navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.2rem, 4.7vw, 3.4rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+.brand-logo { display: block; width: clamp(9rem, 20vw, 14rem); height: auto; flex: 0 0 auto; }
+.company-name {
+  margin: 1.4rem 0 0;
+  padding: 0 0 1.8rem;
+  border-bottom: 1px solid var(--rule);
+  color: var(--navy);
+  font-size: 1.0625rem;
+  font-weight: 650;
+  line-height: 1.55;
+}
+.contact-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 2.75rem; margin: 1.8rem 0 2rem; }
+.contact-grid > * { min-width: 0; }
+.detail-label {
+  margin: 0 0 0.55rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+address { font-size: 1rem; font-style: normal; line-height: 1.7; }
+.address-line { display: block; }
+.address-primary { font-weight: 550; }
+.contact-details { display: grid; gap: 1.15rem; margin: 0; }
+.contact-details dd { margin: 0; font-size: 1.0625rem; line-height: 1.6; }
+.contact-details a { text-decoration: none; }
+.contact-details a:hover { text-decoration: underline; }
+.second-trunkline { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 0.7rem; }
+.extension { color: var(--muted); font-size: 0.875rem; }
+.email-item a { overflow-wrap: anywhere; }
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1.5rem;
+  padding-top: 1.35rem;
+  border-top: 1px solid var(--rule);
+}
+.certification-name { color: var(--muted); font-size: 0.8125rem; line-height: 1.5; }
+.certification-standards { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.55rem; }
+.certification-standards span { padding: 0.3rem 0.5rem; border: 1px solid #bfcad7; color: var(--navy); font-size: 0.875rem; font-weight: 550; line-height: 1.25; }
+.website { display: inline-flex; align-items: center; gap: 0.6rem; color: var(--navy); font-size: 0.9375rem; text-decoration: none; line-height: 1.6; }
+.website:hover { text-decoration: underline; }
+.website span { color: var(--red); font-size: 1.125rem; }
+.back-panel { padding: 0; }
+.original-back { display: block; width: 100%; height: auto; }
+
+@media (max-width: 700px) {
+  .page-shell { align-items: start; padding: 0.875rem; }
+  .viewer-toolbar { position: sticky; top: 0; z-index: 2; padding: 0.4rem 0 0.875rem; background: #750b20; }
+  .viewer-label { max-width: 7rem; line-height: 1.5; font-size: 0.875rem; }
+  .side-controls button { min-width: 4.25rem; padding-inline: 1rem; }
+  .front-panel { padding: 1.5rem; }
+  .card-header { flex-direction: column-reverse; align-items: flex-start; gap: 1.35rem; }
+  .brand-logo { width: 9.25rem; align-self: flex-end; }
+  h1 { font-size: clamp(2.15rem, 7.5vw, 3.1rem); }
+  .company-name { margin-top: 1rem; padding-bottom: 1.3rem; font-size: 1rem; }
+  .contact-grid { grid-template-columns: 1fr; gap: 1.35rem; margin: 1.3rem 0 1.5rem; }
+  .contact-details { gap: 1rem; }
+  .contact-details dd { font-size: 1rem; }
+  .card-footer { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+@media print {
+  html, body { background: white; }
+  .page-shell { display: block; padding: 0; min-height: auto; }
+  .viewer-toolbar { display: none; }
+  .card-surface { box-shadow: none; }
+  .front-panel { padding: 1.5rem; }
+}

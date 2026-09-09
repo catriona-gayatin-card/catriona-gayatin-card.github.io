@@ -1,10 +1,82 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
-    <title>placeholder</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#750b20" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="description" content="Catriona Janelle V. Gayatin, Legal Manager at Gardenia Bakeries (Philippines), Inc. Contact details and calling card." />
+    <title>Catriona Janelle V. Gayatin | Calling Card</title>
+    <link rel="stylesheet" href="./styles.css?v=3" />
+    <script src="./app.js?v=3" defer></script>
   </head>
   <body>
-    <div id="yay"></div>
-    <script>setInterval(() => document.getElementById('yay').textContent = (new Date()).toString(), 100)</script>
+    <main class="page-shell">
+      <div class="card-viewer">
+        <header class="viewer-toolbar">
+          <p class="viewer-label">Digital calling card</p>
+          <div class="side-controls" role="tablist" aria-label="Card side">
+            <button id="front-tab" type="button" role="tab" aria-selected="true" aria-controls="front-panel" data-side="front">Front</button>
+            <button id="back-tab" type="button" role="tab" aria-selected="false" aria-controls="back-panel" data-side="back" tabindex="-1">Back</button>
+          </div>
+        </header>
+
+        <div class="card-surface">
+          <section id="front-panel" class="front-panel" role="tabpanel" aria-labelledby="front-tab" tabindex="0">
+            <header class="card-header">
+              <div class="identity">
+                <p class="role-title">Legal Manager</p>
+                <h1>Catriona Janelle<br /><span>V. Gayatin</span></h1>
+              </div>
+              <img class="brand-logo" src="./assets/gardenia-logo.png" width="555" height="340" alt="Gardenia" />
+            </header>
+
+            <p class="company-name">Gardenia Bakeries (Philippines), Inc.</p>
+
+            <div class="contact-grid">
+              <section class="office-details" aria-labelledby="office-heading">
+                <h2 id="office-heading" class="detail-label">Office address</h2>
+                <address>
+                  <span class="address-line address-primary">Gardenia Centre, Star Avenue</span>
+                  <span class="address-line">Laguna International Industrial Park (LIIP)</span>
+                  <span class="address-line">Mamplasan, Biñan Laguna,</span>
+                  <span class="address-line">4024 Philippines</span>
+                </address>
+              </section>
+
+              <dl class="contact-details">
+                <div class="contact-item">
+                  <dt class="detail-label">Trunkline</dt>
+                  <dd>
+                    <a href="tel:+63288898890">+63 2 8889 8890</a>
+                    <span class="second-trunkline"><a href="tel:+63495391136;ext=1119">+63 49 539 1136</a><span class="extension">loc. 1119</span></span>
+                  </dd>
+                </div>
+                <div class="contact-item">
+                  <dt class="detail-label">Mobile</dt>
+                  <dd><a href="tel:+639399148958">+63 939 914 8958</a></dd>
+                </div>
+                <div class="contact-item email-item">
+                  <dt class="detail-label">Email</dt>
+                  <dd><a href="mailto:catrionajanellegayatin@gardenia.com.ph">catrionajanellegayatin@<wbr />gardenia.com.ph</a></dd>
+                </div>
+              </dl>
+            </div>
+
+            <footer class="card-footer">
+              <div class="certification" aria-label="Certification International, ISO 9001:2015, HACCP">
+                <span class="certification-name">Certification International</span>
+                <div class="certification-standards"><span>ISO 9001:2015</span><span>HACCP</span></div>
+              </div>
+              <a class="website" href="https://www.gardenia.com.ph/" target="_blank" rel="noopener noreferrer">www.gardenia.com.ph<span aria-hidden="true">↗</span></a>
+            </footer>
+          </section>
+
+          <section id="back-panel" class="back-panel" role="tabpanel" aria-labelledby="back-tab" tabindex="0" hidden>
+            <img class="original-back" src="./assets/card-back.png" width="1791" height="981" alt="Page 2 of the original calling-card PDF: the red Gardenia side. Gardenia. Masarap... kahit walang palaman! www.gardenia.com.ph" />
+          </section>
+        </div>
+      </div>
+    </main>
   </body>
 </html>
