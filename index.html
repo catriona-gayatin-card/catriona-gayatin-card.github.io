@@ -82,10 +82,38 @@
         >
           <span class="flip-card-inner">
             <span class="flip-card-face flip-card-front">
-              <img src="./assets/card-front.png" width="1660" height="961" alt="Original front of Catriona Janelle V. Gayatin's Gardenia business card" />
+              <img
+                src="./assets/card-front-960.png"
+                srcset="
+                  ./assets/card-front-640.png 640w,
+                  ./assets/card-front-960.png 960w,
+                  ./assets/card-front-1280.png 1280w,
+                  ./assets/card-front.png 1660w
+                "
+                sizes="(max-width: 700px) calc(100vw - 1.75rem), (max-width: 1050px) calc(100vw - 5rem), 58rem"
+                width="1660"
+                height="961"
+                loading="lazy"
+                decoding="async"
+                alt="Original front of Catriona Janelle V. Gayatin's Gardenia business card"
+              />
             </span>
             <span class="flip-card-face flip-card-back">
-              <img src="./assets/card-back.png" width="1791" height="981" alt="Original red back of the Gardenia business card" />
+              <img
+                src="./assets/card-back-960.png"
+                srcset="
+                  ./assets/card-back-640.png 640w,
+                  ./assets/card-back-960.png 960w,
+                  ./assets/card-back-1280.png 1280w,
+                  ./assets/card-back.png 1791w
+                "
+                sizes="(max-width: 700px) calc(100vw - 1.75rem), (max-width: 1050px) calc(100vw - 5rem), 58rem"
+                width="1791"
+                height="981"
+                loading="lazy"
+                decoding="async"
+                alt="Original red back of the Gardenia business card"
+              />
             </span>
           </span>
         </button>
